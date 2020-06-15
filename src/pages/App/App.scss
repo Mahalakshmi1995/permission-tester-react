@@ -1,4 +1,48 @@
-@import "../../assets/scss/variables";
+@import '../../assets/scss/variables';
 
 .app {
+    padding: 40px;
+    overflow: auto;
+}
+
+.app-head {
+    text-align: center;
+}
+
+.app-body {
+    width: 100%;
+    overflow: auto;
+    padding-top: 30px;
+}
+
+.content {
+    margin-top: 5px;
+}
+
+button,
+a {
+    color: #fff;
+    background: $primary-color;
+    border: 1px solid grey;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-weight: 500;
+}
+
+button:not(:first-child),
+a:not(:first-child) {
+    margin-left: 20px;
+}
+
+button:hover {
+    background: $hover-color;
+}
+
+button:focus {
+    outline: none;
+}
+
+a:hover {
+    color: #fff;
+    text-decoration: none;
 }
