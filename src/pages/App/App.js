@@ -108,7 +108,21 @@ const App = () => {
                     <div>Redirection</div>
                     <div className="content">
                         <button type="button" onClick={handleSameWindow}>Click 1</button>
-                        <a href="https://cdnjs.com/">Click 1</a>
+                        <a href="https://cdnjs.com/">Click 2</a>
+                    </div>
+                </div>
+                <hr />
+                <div>
+                    <div>Mail</div>
+                    <div className="content">
+                        <a href="mailto:test@lynk.co.in?subject=Lynk Subject&body=Lynk Message Body">Click</a>
+                    </div>
+                </div>
+                <hr />
+                <div>
+                    <div>Phone</div>
+                    <div className="content">
+                        <a href="tel:9677960622">Click</a>
                     </div>
                 </div>
                 <hr />
