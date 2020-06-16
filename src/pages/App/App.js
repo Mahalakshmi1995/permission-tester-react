@@ -48,6 +48,10 @@ const App = () => {
         window.open('https://www.google.com/', '_blank', 'noopener,noreferrer');
     };
 
+    const handleSameWindow = () => {
+        window.open('https://cdnjs.com/', '_self');
+    };
+
     return (
         <div className="app">
             <div className="app-head">Test App</div>
@@ -97,6 +101,14 @@ const App = () => {
                     <div className="content">
                         <button type="button" onClick={handleNewWindow}>Click 1</button>
                         <a href="https://www.google.com/" target="_blank" rel="noopener noreferrer">Click 2</a>
+                    </div>
+                </div>
+                <hr />
+                <div>
+                    <div>Redirection</div>
+                    <div className="content">
+                        <button type="button" onClick={handleSameWindow}>Click 1</button>
+                        <a href="https://cdnjs.com/">Click 1</a>
                     </div>
                 </div>
                 <hr />
