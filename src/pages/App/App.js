@@ -31,11 +31,11 @@ const App = () => {
     };
 
     const handleSendSMS = () => {
-        window.open(`smsto:9789839420?payload=Sample SMS Message`, '_self');
+        window.open(`smsto:9677960622?payload=Sample SMS Message`, '_self');
     };
 
     const handleSendWhatsapp = () => {
-        window.open(`whatsapp:9789839420?payload=Sample Whatsapp Message`, '_self');
+        window.open(`whatsapp:9677960622?payload=Sample Whatsapp Message`, '_self');
     };
 
     const handleWebviewClose = () => {
@@ -76,7 +76,7 @@ const App = () => {
                     <div>Send SMS</div>
                     <div className="content">
                         <button type="button" onClick={handleSendSMS}>Click 1</button>
-                        <a href="smsto:9789839420?payload=Sample SMS Message">Click 2</a>
+                        <a href="smsto:9677960622?payload=Sample SMS Message">Click 2</a>
                     </div>
                 </div>
                 <hr />
@@ -84,7 +84,7 @@ const App = () => {
                     <div>Send Whatsapp</div>
                     <div className="content">
                         <button type="button" onClick={handleSendWhatsapp}>Click 1</button>
-                        <a href="whatsapp:9789839420?payload=Sample Whatsapp Message">Click 2</a>
+                        <a href="whatsapp:9677960622?payload=Sample Whatsapp Message">Click 2</a>
                     </div>
                 </div>
                 <hr />
