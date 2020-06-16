@@ -44,6 +44,10 @@ const App = () => {
         }
     };
 
+    const handleNewWindow = () => {
+        window.open('https://www.google.com/', '_blank', 'noopener,noreferrer');
+    };
+
     return (
         <div className="app">
             <div className="app-head">Test App</div>
@@ -85,6 +89,14 @@ const App = () => {
                     <div className="content">
                         <button type="button" onClick={handleSendWhatsapp}>Click 1</button>
                         <a href="whatsapp:9677960622?payload=Sample Whatsapp Message">Click 2</a>
+                    </div>
+                </div>
+                <hr />
+                <div>
+                    <div>Open New Window</div>
+                    <div className="content">
+                        <button type="button" onClick={handleNewWindow}>Click 1</button>
+                        <a href="https://www.google.com/" target="_blank" rel="noopener noreferrer">Click 2</a>
                     </div>
                 </div>
                 <hr />
