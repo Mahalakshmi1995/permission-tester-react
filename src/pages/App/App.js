@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
+import Axios from 'axios'
+import {isIOS} from 'react-device-detect'
 import './App.scss';
+
 
 const App = () => {
     const [accessToken, setAccessToken] = useState('');
@@ -18,7 +21,7 @@ const App = () => {
             console.log('access: ', accessToken);
             setAccessToken(accessToken);
         }}}
-        
+
        
     const handleGetRefreshToken = () => {
         if (window.RefreshTokenHandler) {
