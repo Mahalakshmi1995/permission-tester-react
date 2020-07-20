@@ -6,14 +6,19 @@ const App = () => {
     const [refreshToken, setRefreshToken] = useState('');
     const [customerId, setCustomerId] = useState('');
 
-    const handleGetAccessToken = () => {
-        if (window.AccessTokenHandler) {
+    const handleGetAccessToken = async() => { 
+        const request = await Axios.head("https://web-tester.netlify.app/");       
+        console.log(request.headers.accessToken);       
+        if (isIOS  === true){        
+         const request = await Axios.head("https://web-tester.netlify.app/");           
+         setAccessToken(request.headers.AccessToken);
+        }else{
+        if (window.AccessTokenHandler) {            
             const accessToken = window.AccessTokenHandler.getAccessToken();
             console.log('access: ', accessToken);
             setAccessToken(accessToken);
-        }
-    };
-
+        }}
+       
     const handleGetRefreshToken = () => {
         if (window.RefreshTokenHandler) {
             const refreshToken = window.RefreshTokenHandler.getRefreshToken();
