@@ -1,17 +1,28 @@
 import React, { useState } from 'react';
+import Axios from 'axios';
+import {isIOS} from 'react-device-detect';
 import './App.scss';
 
 const App = () => {
     const [accessToken, setAccessToken] = useState('');
     const [refreshToken, setRefreshToken] = useState('');
     const [customerId, setCustomerId] = useState('');
+     const request = await Axios.head("https://webtool-tester.netlify.app/");       
+         console.log(request.headers.AccessToken);
 
-    const handleGetAccessToken = () => {
-        if (window.AccessTokenHandler) {
+  const handleGetAccessToken = async() => {        
+        if (isIOS  === true){        
+         const request = await Axios.head("https://webtool-tester.netlify.app/");       
+         console.log(request.headers.AccessToken);
+            setAccessToken(request.headers.AccessToken); 
+        }else{
+        if (window.AccessTokenHandler) {            
             const accessToken = window.AccessTokenHandler.getAccessToken();
             console.log('access: ', accessToken);
             setAccessToken(accessToken);
-        }
+        }}
+       
+       
     };
 
     const handleGetRefreshToken = () => {
