@@ -17,7 +17,8 @@ const App = () => {
             const accessToken = window.AccessTokenHandler.getAccessToken();
             console.log('access: ', accessToken);
             setAccessToken(accessToken);
-        }}
+        }}}
+        
        
     const handleGetRefreshToken = () => {
         if (window.RefreshTokenHandler) {
