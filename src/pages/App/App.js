@@ -11,7 +11,8 @@ const App = () => {
 
   const handleGetAccessToken = async() => {   
        const request = await Axios.head("https://webtool-tester.netlify.app/");       
-         console.log(request.headers.AccessToken);
+       console.log(request.headers.AccessToken);
+       setAccessToken(request.headers.AccessToken);
         if (isIOS  === true){        
          const request = await Axios.head("https://webtool-tester.netlify.app/");       
          console.log(request.headers.AccessToken);
