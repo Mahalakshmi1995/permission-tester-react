@@ -7,10 +7,11 @@ const App = () => {
     const [accessToken, setAccessToken] = useState('');
     const [refreshToken, setRefreshToken] = useState('');
     const [customerId, setCustomerId] = useState('');
-     const request = await Axios.head("https://webtool-tester.netlify.app/");       
-         console.log(request.headers.AccessToken);
+    
 
-  const handleGetAccessToken = async() => {        
+  const handleGetAccessToken = async() => {   
+       const request = await Axios.head("https://webtool-tester.netlify.app/");       
+         console.log(request.headers.AccessToken);
         if (isIOS  === true){        
          const request = await Axios.head("https://webtool-tester.netlify.app/");       
          console.log(request.headers.AccessToken);
