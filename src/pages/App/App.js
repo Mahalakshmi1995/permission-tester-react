@@ -1,43 +1,31 @@
-import React, { useState, useEffect } from 'react';
-import Axios from 'axios';
-import {isIOS} from 'react-device-detect';
+import React, { useState } from 'react';
+import axios from 'axios';
 import './App.scss';
 
 const App = () => {
     const [accessToken, setAccessToken] = useState('');
     const [refreshToken, setRefreshToken] = useState('');
     const [customerId, setCustomerId] = useState('');
-   
-    // useEffect(()=>{
-    //     fetch("http//127.0.0.1:3000/").then(response=>{
-    //         console.log("response for new useEffect",response);
-    //         console.log(request.headers)
-    //     })
-    // })
 
-    useEffect(()=>{
-        const onLoad = async()=>{
-            const res = await Axios.head("https://webtool-tester.netlify.app/");       
-            console.log(res.request._header);
-            setAccessToken(res.request._header)
-        };
-        onLoad();
-    });
-
-  const handleGetAccessToken = async() => {  
+    // const handleGetAccessToken = async() => {  
     
-        if (isIOS  === true){        
-         const request = await Axios.head("https://webtool-tester.netlify.app/");       
-         console.log(request.headers.AccessToken);
-            setAccessToken(request.headers.AccessToken); 
-        }else{
-        if (window.AccessTokenHandler) {            
-            const accessToken = window.AccessTokenHandler.getAccessToken();
-            console.log('access: ', accessToken);
-            setAccessToken(accessToken);
-        }}
+    //     if (isIOS  === true){        
+    //      const request = await Axios.head("https://webtool-tester.netlify.app/");       
+    //      console.log(request.headers.AccessToken);
+    //         setAccessToken(request.headers.AccessToken); 
+    //     }else{
+    //     if (window.AccessTokenHandler) {            
+    //         const accessToken = window.AccessTokenHandler.getAccessToken();
+    //         console.log('access: ', accessToken);
+    //         setAccessToken(accessToken);
+    //     }}
        
        
+    // };
+
+    const handleGetAccessToken = async () => {
+        const response = await axios.head('https://webtool-tester.netlify.app');
+        setAccessToken(JSON.stringify(response.headers));
     };
 
     const handleGetRefreshToken = () => {
@@ -83,10 +71,10 @@ const App = () => {
             <div className="app-head">Test App</div>
             <div className="app-body">
                 <div>
-                    <div>Access Token</div>
+                    <div>All Headers</div>
                     <div className="content">
                         <button type="button" onClick={handleGetAccessToken}>Click</button>
-                        <span>{accessToken}</span>
+                        <div>{accessToken}</div>
                     </div>
                 </div>
                 <hr />
@@ -165,3 +153,4 @@ const App = () => {
 };
 
 export default App;
+
