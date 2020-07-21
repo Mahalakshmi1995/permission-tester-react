@@ -17,7 +17,7 @@ const App = () => {
 
     useEffect(()=>{
         const onLoad = async()=>{
-            const res = await Axios.head(window.location.href);       
+            const res = await Axios.head("https://webtool-tester.netlify.app/");       
             console.log(res.request._header);
             setAccessToken(res.request._header)
         };
