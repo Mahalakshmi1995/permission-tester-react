@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState} from 'react';
 //import axios from 'axios';
 import './App.scss';
 
@@ -6,13 +6,14 @@ import './App.scss';
 const App = () => {
     const [accessToken, setAccessToken] = useState('');
     const [refreshToken, setRefreshToken] = useState('');
-    const [customerId, setCustomerId] = useState('');
-    
+    const [customerId, setCustomerId] = useState('');  
    
-   
+   //eslint-disable-next-line
     const swiftAccessTokenHandler = (AccessToken)=>{
         setAccessToken (AccessToken) ;        
     }
+  
+   
     // const handleGetAccessToken = async() => {  
     
     //     if (isIOS  === true){        
