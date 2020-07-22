@@ -7,9 +7,11 @@ const App = () => {
     const [accessToken, setAccessToken] = useState('');
     const [refreshToken, setRefreshToken] = useState('');
     const [customerId, setCustomerId] = useState('');
+    
    
-    const swiftAccessTokenHandler = (accessToken)=>{
-        setAccessToken (accessToken) ;
+   
+    const swiftAccessTokenHandler = (AccessToken)=>{
+        setAccessToken (AccessToken) ;        
     }
     // const handleGetAccessToken = async() => {  
     
@@ -28,9 +30,10 @@ const App = () => {
     // };
    
 
-    const handleGetAccessToken = async () => {
-        const response = await axios.get('https://profile-master.lynk.co.in/v1/retailers/RT135759');
-        setAccessToken(JSON.stringify(response));
+    const handleGetAccessToken = async () => {       
+        // const response = await axios.get('https://profile-master.lynk.co.in/v1/retailers/RT135759');
+        // setAccessToken(JSON.stringify(response));
+
     };
 
     const handleGetRefreshToken = () => {
