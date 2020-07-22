@@ -2,11 +2,15 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import './App.scss';
 
+
 const App = () => {
     const [accessToken, setAccessToken] = useState('');
     const [refreshToken, setRefreshToken] = useState('');
     const [customerId, setCustomerId] = useState('');
-
+   
+    const swiftAccessTokenHandler = (accessToken)=>{
+        setAccessToken (accessToken) ;
+    }
     // const handleGetAccessToken = async() => {  
     
     //     if (isIOS  === true){        
@@ -22,10 +26,11 @@ const App = () => {
        
        
     // };
+   
 
     const handleGetAccessToken = async () => {
-        const response = await axios.head('https://webtool-tester.netlify.app');
-        setAccessToken(JSON.stringify(response.headers));
+        const response = await axios.get('https://profile-master.lynk.co.in/v1/retailers/RT135759');
+        setAccessToken(JSON.stringify(response));
     };
 
     const handleGetRefreshToken = () => {
