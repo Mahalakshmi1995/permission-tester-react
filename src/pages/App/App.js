@@ -2,16 +2,25 @@ import React, { useState} from 'react';
 //import axios from 'axios';
 import './App.scss';
 
+let testToken = '';
+//eslint-disable-next-line
+function SwiftAccessTokenHandler( AccessToken){ 
+  testToken = AccessToken;
+    console.log(testToken);
+}
+
 
 const App = () => {
-    const [accessToken, setAccessToken] = useState('');
+    //eslint-disable-next-line
+    const [accessToken, setAccessToken] = useState(testToken);
     const [refreshToken, setRefreshToken] = useState('');
-    const [customerId, setCustomerId] = useState('');  
+    const [customerId, setCustomerId] = useState(''); 
+    
    
    //eslint-disable-next-line
-    const swiftAccessTokenHandler = (AccessToken)=>{
-        setAccessToken (AccessToken) ;        
-    }
+    // const AccessTokenHandler = (AccessToken)=>{
+    //     setAccessToken (AccessToken) ;        
+    // }
   
    
     // const handleGetAccessToken = async() => {  
@@ -30,6 +39,7 @@ const App = () => {
        
     // };
    
+//eslint-disable-next-line
 
     const handleGetAccessToken = async () => {       
         // const response = await axios.get('https://profile-master.lynk.co.in/v1/retailers/RT135759');
