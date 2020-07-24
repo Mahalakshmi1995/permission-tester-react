@@ -20,7 +20,7 @@ const App = () => {
     }
     
     useEffect(()=>{
-     window.app = this;
+     window.App = this;
     });
    
    //eslint-disable-next-line
