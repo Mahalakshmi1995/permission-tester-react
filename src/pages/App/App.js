@@ -11,6 +11,8 @@ const App = () => {
     const [refreshToken, setRefreshToken] = useState('');
     const [customerId, setCustomerId] = useState(''); 
 
+   
+    //eslint-disable-next-line
     let testToken = 'test token ';
     //eslint-disable-next-line
     const SwiftAccessTokenHandler = ( AccessToken)=>{     
