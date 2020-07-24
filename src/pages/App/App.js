@@ -1,21 +1,25 @@
-import React, { useState} from 'react';
+import React, { useState, useEffect} from 'react';
 //import axios from 'axios';
 import './App.scss';
 
-let testToken = '';
-//eslint-disable-next-line
-function SwiftAccessTokenHandler( AccessToken){ 
-  testToken = AccessToken;
-    console.log(testToken);
-}
+
 
 
 const App = () => {
     //eslint-disable-next-line
-    const [accessToken, setAccessToken] = useState(testToken);
+    const [accessToken, setAccessToken] = useState('');
     const [refreshToken, setRefreshToken] = useState('');
     const [customerId, setCustomerId] = useState(''); 
+
+    let testToken = 'test token ';
+    //eslint-disable-next-line
+    const SwiftAccessTokenHandler = ( AccessToken)=>{     
+    setAccessToken (AccessToken) ;    
+    }
     
+    useEffect(()=>{
+     window.app = this;
+    });
    
    //eslint-disable-next-line
     // const AccessTokenHandler = (AccessToken)=>{
