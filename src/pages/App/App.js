@@ -20,7 +20,7 @@ const App = () => {
     }
     
     useEffect(()=>{
-     window.App = this;
+     window.SwiftAccessTokenHandler = SwiftAccessTokenHandler;
     });
    
    //eslint-disable-next-line
