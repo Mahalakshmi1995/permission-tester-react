@@ -18,30 +18,16 @@ const App = () => {
     let iosExpiresIn = '';
 
     //eslint-disable-next-line
-    const SwiftAccessTokenHandler = ( AccessToken)=>{    
-        iosAccessToken = AccessToken ;     
-    }
-    
-     //eslint-disable-next-line
-     const SwiftRefreshTokenHandler = ( RefreshToken)=>{    
-        iosRefreshToken = RefreshToken ;     
-   }
+    const SwiftValueHandler = ( AccessToken,RefreshToken,Expiry,CustomerId)=>{    
+        iosAccessToken = AccessToken ; 
+        iosRefreshToken = RefreshToken ;  
+        iosExpiresIn = Expiry; 
+        iosCustomerID = CustomerId ;   
+    }   
 
-    //eslint-disable-next-line
-    const SwiftExpiresInHandler = ( Expiry )=>{    
-        iosExpiresIn = Expiry;   
-   }
-
-    //eslint-disable-next-line
-    const SwiftGetCustomerIdHandler = ( CustomerId )=>{    
-        iosCustomerID = CustomerId ;     
-   }
 
     useEffect(()=>{
-     window.AccessTokenHandler = SwiftAccessTokenHandler;
-     window.RefreshTokenHandler = SwiftRefreshTokenHandler;
-     window.ExpiresInHandler = SwiftExpiresInHandler;
-     window.CustomerIDHandler = SwiftGetCustomerIdHandler;
+     window.SwiftHandlers = SwiftValueHandler;    
     });
    
    
