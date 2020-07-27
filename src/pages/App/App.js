@@ -10,23 +10,45 @@ const App = () => {
     //eslint-disable-next-line
     const [accessToken, setAccessToken] = useState('');
     const [refreshToken, setRefreshToken] = useState('');
-    const [customerId, setCustomerId] = useState('');   
-    let iosToken = '';
+    const [customerId, setCustomerId] = useState(''); 
+    const [expiresIn,setExpiry]=useState('');  
+    let iosAccessToken = '';
+    let iosRefreshToken = '';    
+    let iosCustomerID = '';
+    let iosExpiresIn = '';
 
     //eslint-disable-next-line
     const SwiftAccessTokenHandler = ( AccessToken)=>{    
-         iosToken = AccessToken ;     
+        iosAccessToken = AccessToken ;     
     }
     
+     //eslint-disable-next-line
+     const SwiftRefreshTokenHandler = ( RefreshToken)=>{    
+        iosRefreshToken = RefreshToken ;     
+   }
+
+    //eslint-disable-next-line
+    const SwiftExpiresInHandler = ( Expiry )=>{    
+        iosExpiresIn = Expiry;   
+   }
+
+    //eslint-disable-next-line
+    const SwiftGetCustomerIdHandler = ( CustomerId )=>{    
+        iosCustomerID = CustomerId ;     
+   }
+
     useEffect(()=>{
      window.AccessTokenHandler = SwiftAccessTokenHandler;
+     window.RefreshTokenHandler = SwiftRefreshTokenHandler;
+     window.ExpiresInHandler = SwiftExpiresInHandler;
+     window.CustomerIDHandler = SwiftGetCustomerIdHandler;
     });
    
    
     const handleGetAccessToken = async() => {  
     
         if (isIOS  === true){          
-            setAccessToken(iosToken); 
+            setAccessToken(iosAccessToken); 
         }else{
         if (window.AccessTokenHandler) {            
             const accessToken = window.AccessTokenHandler.getAccessToken();            
@@ -37,20 +59,34 @@ const App = () => {
     };
    
    const handleGetRefreshToken = () => {
+    if (isIOS  === true){          
+        setRefreshToken(iosRefreshToken); 
+    }else{
         if (window.RefreshTokenHandler) {
             const refreshToken = window.RefreshTokenHandler.getRefreshToken();
             console.log('refresh:', refreshToken);
             setRefreshToken(refreshToken);
         }
+    }
     };
 
     const handleGetCustomerId = () => {
+        if (isIOS  === true){          
+            setCustomerId(iosCustomerID); 
+        }else{
         if (window.CustomerIdHandler) {
             const customerId = window.CustomerIdHandler.getCustomerId();
             console.log('customer id: ', customerId);
             setCustomerId(customerId);
         }
+    }
     };
+
+    const handleGetExpiresInTime = () => {
+        if (isIOS  === true){          
+            setExpiry(iosExpiresIn); 
+        }
+    }
 
     const handleSendSMS = () => {
         window.open(`smsto:9677960622?payload=Sample SMS Message`, '_self');
@@ -99,6 +135,14 @@ const App = () => {
                     <div className="content">
                         <button type="button" onClick={handleGetCustomerId}>Click</button>
                         <div>{customerId}</div>
+                    </div>
+                </div>
+                <hr />
+                <div>
+                    <div>Expires In</div>
+                    <div className="content">
+                        <button type="button" onClick={handleGetExpiresInTime}>Click</button>
+                        <div>{expiresIn}</div>
                     </div>
                 </div>
                 <hr />
