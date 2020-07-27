@@ -1,4 +1,5 @@
 import React, { useState, useEffect} from 'react';
+import {isIOS} from 'react-device-detect'
 //import axios from 'axios';
 import './App.scss';
 
@@ -9,51 +10,33 @@ const App = () => {
     //eslint-disable-next-line
     const [accessToken, setAccessToken] = useState('');
     const [refreshToken, setRefreshToken] = useState('');
-    const [customerId, setCustomerId] = useState(''); 
+    const [customerId, setCustomerId] = useState('');   
+    let iosToken = '';
 
-   
     //eslint-disable-next-line
-    let testToken = 'test token ';
-    //eslint-disable-next-line
-    const SwiftAccessTokenHandler = ( AccessToken)=>{     
-    setAccessToken (AccessToken) ;    
+    const SwiftAccessTokenHandler = ( AccessToken)=>{    
+         iosToken = AccessToken ;     
     }
     
     useEffect(()=>{
-     window.SwiftAccessTokenHandler = SwiftAccessTokenHandler;
+     window.AccessTokenHandler = SwiftAccessTokenHandler;
     });
    
-   //eslint-disable-next-line
-    // const AccessTokenHandler = (AccessToken)=>{
-    //     setAccessToken (AccessToken) ;        
-    // }
-  
    
-    // const handleGetAccessToken = async() => {  
+    const handleGetAccessToken = async() => {  
     
-    //     if (isIOS  === true){        
-    //      const request = await Axios.head("https://webtool-tester.netlify.app/");       
-    //      console.log(request.headers.AccessToken);
-    //         setAccessToken(request.headers.AccessToken); 
-    //     }else{
-    //     if (window.AccessTokenHandler) {            
-    //         const accessToken = window.AccessTokenHandler.getAccessToken();
-    //         console.log('access: ', accessToken);
-    //         setAccessToken(accessToken);
-    //     }}
+        if (isIOS  === true){          
+            setAccessToken(iosToken); 
+        }else{
+        if (window.AccessTokenHandler) {            
+            const accessToken = window.AccessTokenHandler.getAccessToken();            
+            setAccessToken(accessToken);
+        }}
        
        
-    // };
-   
-//eslint-disable-next-line
-
-    const handleGetAccessToken = async () => {       
-        // const response = await axios.get('https://profile-master.lynk.co.in/v1/retailers/RT135759');
-        // setAccessToken(JSON.stringify(response));
-
     };
-
-    const handleGetRefreshToken = () => {
+   
+   const handleGetRefreshToken = () => {
         if (window.RefreshTokenHandler) {
             const refreshToken = window.RefreshTokenHandler.getRefreshToken();
             console.log('refresh:', refreshToken);
